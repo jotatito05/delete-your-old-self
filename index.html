@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeleteYourOldSelf // Vi0lence.exe</title>
+    <link rel="icon" type="image/webp" href="img_jiutae.webp">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Outfit:wght@400;500;700&family=Share+Tech+Mono&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Video background -->
+    <div class="yt-wrap">
+        <div class="yt-dim"></div>
+        <video id="bg-video" loop playsinline>
+            <source src="https://pub-a038243fd46e4ef3a95b57eb3e8eb1f5.r2.dev/background.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- ── ENTRANCE ── -->
+    <div id="overlay" class="overlay">
+        <div class="overlay-scanlines"></div>
+
+        <button id="enter-btn" class="enter-btn">
+            <!-- Portrait -->
+            <div class="ov-portrait">
+                <img src="d032c67a27a223563e07b6eeabcfeed6.jpg" class="ov-img" alt="">
+                <div class="ov-img-glow"></div>
+                <div class="ov-img-fade"></div>
+                <div class="ov-corners">
+                    <i></i><i></i><i></i><i></i>
+                </div>
+            </div>
+
+            <!-- Text -->
+            <div class="ov-text">
+                <p class="ov-tag">// Vi0lence.exe</p>
+                <h1 class="ov-name">DeleteYourOldSelf</h1>
+                <p class="ov-sub">stay focus &nbsp;·&nbsp; enjoy the pain &nbsp;·&nbsp; only succeed</p>
+                <div class="ov-enter">
+                    <span class="ov-line"></span>
+                    <span class="enter-label">click to enter</span>
+                    <span class="ov-line"></span>
+                </div>
+            </div>
+        </button>
+    </div>
+
+    <!-- ── PROFILE ── -->
+    <div id="profile" class="profile hidden">
+
+        <div class="card-outer-glow"></div>
+
+        <div class="card">
+            <div class="card-glare"></div>
+            <div class="card-spot"></div>
+
+            <!-- Banner -->
+            <div class="card-banner">
+                <img src="d032c67a27a223563e07b6eeabcfeed6.jpg" class="card-banner-img" alt="">
+                <div class="card-banner-dim"></div>
+            </div>
+
+            <!-- Avatar centered -->
+            <div class="av-wrap">
+                <div class="av-ring"></div>
+                <div class="av-bg"></div>
+                <img class="av-img" src="img_jiutae.webp" alt="DeleteYourOldSelf">
+                <div class="av-shine"></div>
+                <div class="av-overlay">
+                    <span class="av-overlay-text">DeleteYourOldSelf</span>
+                </div>
+                <div class="av-status"></div>
+            </div>
+
+            <!-- Name + badges -->
+            <div class="name-row">
+                <span class="name">DeleteYourOldSelf</span>
+                <div class="badge-row">
+                    <i class="fa-solid fa-circle-check" title="Verified"></i>
+                    <i class="fa-solid fa-gem" title="Premium"></i>
+                    <i class="fa-solid fa-fire" title="Hot"></i>
+                    <i class="fa-solid fa-skull" title="Hacker"></i>
+                </div>
+            </div>
+
+            <!-- Bio typewriter -->
+            <p class="bio"><span class="bio-prompt">›</span> <span id="tw"></span><span class="blink">_</span></p>
+
+            <!-- Static bio -->
+            <p class="bio-static">enjoy the pain</p>
+
+            <!-- Location + views -->
+            <div class="stats-row">
+                <span class="mogged-wrap">
+                    <i class="fa-solid fa-location-dot"></i> mogged
+                    <div class="mogged-popup">
+                        <p class="mogged-title">// SUBJECT PROFILE</p>
+                        <ul>
+                            <li>Condiciona todos sus procesos vitales para el mogg</li>
+                            <li>Porcentaje graso cronicamente bajo</li>
+                            <li>Relaciones sociales limitadas a lo estrictamente necesario</li>
+                            <li>El descanso es una variable de rendimiento, no un placer</li>
+                            <li>No negocia su rutina con nadie</li>
+                        </ul>
+                    </div>
+                </span>
+                <span class="noinfo-wrap">
+                    <i class="fa-solid fa-eye"></i> NO INFO
+                    <div class="noinfo-popup">
+                        <p class="noinfo-title">// OPSEC ACTIVE</p>
+                        <ul>
+                            <li>Los datos de actividad no se exponen por razones operativas</li>
+                            <li>Tráfico enrutado, identidad compartimentada</li>
+                            <li>Sin rastro digital innecesario — cada byte tiene un propósito</li>
+                            <li>La visibilidad es una vulnerabilidad</li>
+                            <li>Si puedes leer esto, ya te he perfilado</li>
+                        </ul>
+                    </div>
+                </span>
+            </div>
+
+            <!-- Motto -->
+            <p class="motto">" stay hard · stay focus · only succeed in my mind "</p>
+
+            <!-- Skills -->
+            <div class="skills">
+                <span class="skill">Red Team</span>
+                <span class="skill">Exploit Dev</span>
+                <span class="skill">Rev Eng</span>
+                <span class="skill">OSINT</span>
+                <span class="skill">Python</span>
+                <span class="skill">x86 ASM</span>
+                <span class="skill">Burp Suite</span>
+                <span class="skill">Kali Linux</span>
+            </div>
+
+            <!-- Marquee ticker -->
+            <div class="ticker">
+                <div class="ticker-track">
+                    <span>MOGGED</span><span class="t-dot">·</span>
+                    <span>MOGGED</span><span class="t-dot">·</span>
+                    <span>MOGGED</span><span class="t-dot">·</span>
+                    <span>MOGGED</span><span class="t-dot">·</span>
+                    <span>MOGGED</span><span class="t-dot">·</span>
+                    <span>MOGGED</span><span class="t-dot">·</span>
+                    <span>MOGGED</span><span class="t-dot">·</span>
+                    <span>MOGGED</span><span class="t-dot">·</span>
+                    <span>MOGGED</span><span class="t-dot">·</span>
+                    <span>MOGGED</span><span class="t-dot">·</span>
+                    <span>MOGGED</span><span class="t-dot">·</span>
+                    <span>MOGGED</span><span class="t-dot">·</span>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Now playing label -->
+            <div class="now-playing-bar">
+                <span class="np-dot"></span>
+                <span class="np-label">now playing</span>
+            </div>
+
+            <!-- Music player -->
+            <div class="player">
+                <div class="player-left">
+                    <div class="disc" id="disc">
+                        <div class="disc-hole"></div>
+                    </div>
+                    <div class="player-meta">
+                        <p class="song-name" id="song-name">Fight Class 3</p>
+                        <p class="song-artist" id="song-artist">Jui Ju Tae</p>
+                    </div>
+                </div>
+                <div class="player-right">
+                    <canvas id="viz"></canvas>
+                </div>
+            </div>
+
+            <!-- Progress -->
+            <div class="prog-bar" id="prog-bar">
+                <div class="prog-fill" id="prog-fill"></div>
+            </div>
+            <div class="time-row">
+                <span id="t-now">0:00</span>
+                <span id="t-end">0:00</span>
+            </div>
+
+            <!-- Controls -->
+            <div class="controls">
+                <button id="play-btn" class="play-btn">
+                    <i class="fa-solid fa-play" id="play-icon"></i>
+                </button>
+                <div class="vol-wrap">
+                    <i class="fa-solid fa-volume-high" id="vol-icon"></i>
+                    <input type="range" id="vol" class="vol" min="0" max="1" step="0.05" value="0.7">
+                </div>
+                <button id="mute-btn" class="mute-btn">
+                    <i class="fa-solid fa-volume-high" id="mute-icon"></i>
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Social links -->
+        <div class="socials-wrap">
+            <div class="socials">
+                <a href="#" class="soc noinfo-soc" data-t="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="#" class="soc noinfo-soc" data-t="Discord"><i class="fa-brands fa-discord"></i></a>
+                <a href="#" class="soc noinfo-soc" data-t="HackTheBox"><i class="fa-solid fa-cube"></i></a>
+                <a href="#" class="soc noinfo-soc" data-t="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                <a href="#" class="soc noinfo-soc" data-t="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+            <div id="toast" class="toast">
+                <span class="toast-tag">// OPSEC</span>
+                NO INFO
+            </div>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
