@@ -160,17 +160,21 @@ document.addEventListener('DOMContentLoaded', () => {
         bgVideo.play();
     });
 
-    /* Progress bar — click + drag */
+    /* Progress bar — click + drag + touch */
     let dragging = false;
-    function seekTo(e) {
+    function seekTo(clientX) {
         if (!bgVideo.duration) return;
         const r = progBar.getBoundingClientRect();
-        const pct = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width));
+        const pct = Math.max(0, Math.min(1, (clientX - r.left) / r.width));
         bgVideo.currentTime = pct * bgVideo.duration;
     }
-    progBar.addEventListener('mousedown', e => { dragging = true; seekTo(e); });
-    document.addEventListener('mousemove', e => { if (dragging) seekTo(e); });
+    progBar.addEventListener('mousedown', e => { dragging = true; seekTo(e.clientX); });
+    document.addEventListener('mousemove', e => { if (dragging) seekTo(e.clientX); });
     document.addEventListener('mouseup', () => { dragging = false; });
+
+    progBar.addEventListener('touchstart', e => { e.preventDefault(); dragging = true; seekTo(e.touches[0].clientX); }, { passive: false });
+    document.addEventListener('touchmove', e => { if (dragging) { e.preventDefault(); seekTo(e.touches[0].clientX); } }, { passive: false });
+    document.addEventListener('touchend', () => { dragging = false; });
 
     vol.addEventListener('input', e => {
         const v = +e.target.value;
@@ -258,6 +262,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 toast.classList.replace('show', 'hide');
             }, 2000);
         });
+    });
+
+    /* ─── POPUPS TOUCH (mogged / noinfo) ─── */
+    document.querySelectorAll('.mogged-wrap, .noinfo-wrap').forEach(el => {
+        el.addEventListener('click', e => {
+            e.stopPropagation();
+            const isOpen = el.classList.contains('open');
+            document.querySelectorAll('.mogged-wrap, .noinfo-wrap').forEach(x => x.classList.remove('open'));
+            if (!isOpen) el.classList.add('open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.mogged-wrap, .noinfo-wrap').forEach(el => el.classList.remove('open'));
     });
 
     /* ─── COPY USERNAME ─── */

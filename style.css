@@ -1162,9 +1162,43 @@ body::after {
     opacity: .8;
 }
 
+/* Popups abiertos por tap en móvil */
+.mogged-wrap.open .mogged-popup,
+.noinfo-wrap.open .noinfo-popup {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
 /* ─── Responsive ─── */
 @media (max-width:480px) {
     .card    { padding:22px 16px 18px; }
     .song-name, .song-artist { max-width:110px; }
-    .profile { max-width:340px; }
+    .profile { max-width:340px; padding-bottom: 32px; }
+
+    /* Botones de control más grandes en móvil para facilitar el tap */
+    .play-btn  { width: 42px; height: 42px; font-size: .85rem; }
+    .mute-btn  { width: 38px; height: 38px; font-size: .8rem; }
+    .soc       { width: 48px; height: 48px; font-size: 1.1rem; }
+
+    /* Popup: mostrar hacia abajo en móvil para no salirse de pantalla */
+    .mogged-popup,
+    .noinfo-popup {
+        bottom: auto;
+        top: calc(100% + 8px);
+        transform: translateX(-50%) translateY(-6px);
+    }
+    .mogged-wrap:hover .mogged-popup,
+    .noinfo-wrap:hover .noinfo-popup,
+    .mogged-wrap.open .mogged-popup,
+    .noinfo-wrap.open .noinfo-popup {
+        transform: translateX(-50%) translateY(0);
+    }
+    .mogged-popup::after,
+    .noinfo-popup::after {
+        top: auto;
+        bottom: 100%;
+        border-top-color: transparent;
+        border-bottom-color: rgba(255,255,255,.1);
+    }
 }
