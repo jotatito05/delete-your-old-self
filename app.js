@@ -32,9 +32,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* ─── ENTRADA ─── */
     enterBtn.addEventListener('click', () => {
-        // Desmutear al hacer click (gesto de usuario necesario para el audio)
+        // Desmutear al hacer click (gesto de usuario necesario para el audio en iOS/Android)
         bgVideo.muted  = false;
         bgVideo.volume = savedVol;
+        bgVideo.play().catch(() => {});
 
         overlay.classList.add('out');
         profile.classList.remove('hidden');

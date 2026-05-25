@@ -1172,9 +1172,25 @@ body::after {
 
 /* ─── Responsive ─── */
 @media (max-width:480px) {
-    .card    { padding:22px 16px 18px; }
-    .song-name, .song-artist { max-width:110px; }
-    .profile { max-width:340px; padding-bottom: 32px; }
+    /* Mantener banner pegado al top y ajustar márgenes negativos al padding real */
+    .card         { padding: 0 16px 18px; }
+    .card-banner  { margin: 0 -16px; }
+    .ticker       { margin: 0 -16px 14px; }
+
+    .song-name, .song-artist { max-width: 110px; }
+    .profile {
+        max-width: 340px;
+        padding-bottom: 32px;
+        max-height: 100vh;
+        max-height: 100dvh;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Título de entrada: reducir letra-espaciado para que quepa en pantallas pequeñas */
+    .ov-name {
+        font-size: clamp(1.1rem, 5.5vw, 2rem);
+        letter-spacing: .06em;
+    }
 
     /* Botones de control más grandes en móvil para facilitar el tap */
     .play-btn  { width: 42px; height: 42px; font-size: .85rem; }
