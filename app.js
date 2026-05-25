@@ -29,14 +29,20 @@ document.addEventListener('DOMContentLoaded', () => {
     bgVideo.muted = true;
 
     function tryPlay() {
+        if (!bgVideo.paused) return;
         bgVideo.play().catch(() => {});
     }
-    // Intentar play en cuanto haya datos (más fiable en móvil)
-    if (bgVideo.readyState >= 2) {
+
+    // Forzar carga explícita (iOS puede ignorar autoplay/preload sin esto)
+    bgVideo.load();
+
+    bgVideo.addEventListener('loadeddata',    tryPlay, { once: true });
+    bgVideo.addEventListener('canplay',       tryPlay, { once: true });
+    bgVideo.addEventListener('loadedmetadata', () => {
+        tEnd.textContent = fmt(bgVideo.duration);
         tryPlay();
-    } else {
-        bgVideo.addEventListener('canplay', tryPlay, { once: true });
-    }
+    }, { once: true });
+
     // Retomar si el navegador pausa el video (Low Power Mode, cambio de pestaña, etc.)
     document.addEventListener('visibilitychange', () => {
         if (!document.hidden && bgVideo.paused && !bgVideo.ended) tryPlay();
