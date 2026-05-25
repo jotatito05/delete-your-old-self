@@ -26,9 +26,21 @@ document.addEventListener('DOMContentLoaded', () => {
     let savedVol = 0.7;
 
     /* ─── AUTOPLAY muted al cargar ─── */
-    bgVideo.muted  = true;
-    bgVideo.volume = savedVol;
-    bgVideo.play().catch(() => {});
+    bgVideo.muted = true;
+
+    function tryPlay() {
+        bgVideo.play().catch(() => {});
+    }
+    // Intentar play en cuanto haya datos (más fiable en móvil)
+    if (bgVideo.readyState >= 2) {
+        tryPlay();
+    } else {
+        bgVideo.addEventListener('canplay', tryPlay, { once: true });
+    }
+    // Retomar si el navegador pausa el video (Low Power Mode, cambio de pestaña, etc.)
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden && bgVideo.paused && !bgVideo.ended) tryPlay();
+    });
 
     /* ─── ENTRADA ─── */
     enterBtn.addEventListener('click', () => {
